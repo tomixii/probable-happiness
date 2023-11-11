@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from 'axios'
 import { useState } from 'react'
 import Camera from 'react-html5-camera-photo'
-import DotLoader from 'react-spinners/DotLoader'
+import PropagateLoader from 'react-spinners/PropagateLoader'
 import 'react-html5-camera-photo/build/css/index.css'
 
 import './style.css'
@@ -10,9 +10,11 @@ import { ObjectInfo } from '../../types'
 
 export default function PhotoPage() {
   const [loading, setLoading] = useState(false)
+  const [cameraLoaded, setCameraLoaded] = useState(false)
+  const [dataUri, setDataUri] = useState('')
   const navigate = useNavigate()
   const handleTakePhoto = async (dataUri: string) => {
-    console.log(dataUri)
+    setDataUri(dataUri)
     setLoading(true)
     try {
       const response = await axios.post<unknown, AxiosResponse<ObjectInfo>>(
@@ -37,18 +39,31 @@ export default function PhotoPage() {
 
   return (
     <div className="photo-page">
-      {loading ? (
-        <>
-          <p>Retrieving info based on your object</p>
-          <DotLoader />
-        </>
-      ) : (
-        <Camera
-          onTakePhoto={(dataUri) => {
-            handleTakePhoto(dataUri)
-          }}
-        />
-      )}
+      <div
+        className={`camera-container ${cameraLoaded ? 'camera-loaded' : ''}`}
+      >
+        {dataUri ? (
+          <>
+            <div className="image-preview">
+              <img src={dataUri} />
+            </div>
+            {loading && (
+              <div className="loader-container">
+                <p>Rawcycling</p>
+                <PropagateLoader color="white" />
+              </div>
+            )}
+          </>
+        ) : (
+          <Camera
+            onTakePhoto={(dataUri) => {
+              handleTakePhoto(dataUri)
+            }}
+            onCameraStart={() => setCameraLoaded(true)}
+          />
+        )}
+      </div>
+      {!cameraLoaded && <PropagateLoader color="white" />}
     </div>
   )
 }
