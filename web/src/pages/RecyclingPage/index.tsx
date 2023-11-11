@@ -15,7 +15,7 @@ const RecyclingPage = () => {
     setLoading(true)
     try {
       axios
-        .get(`http://localhost:8080/recycle/${itemName}`)
+        .get(`https://rawcycle.fly.dev/recycle/${itemName}`)
         .then((response) => {
           setRecycleInstructions(response.data.instructions)
           setLoading(false)

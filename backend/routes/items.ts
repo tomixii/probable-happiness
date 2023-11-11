@@ -13,9 +13,9 @@ itemsRouter.post(
   async (req: Request<null, null, ItemPostData>, res: Response) => {
     try {
       const { image } = req.body
-      const types = await detectObjectType(image)
-      if (types) {
-        const data = await getInfoFromObjectType(types)
+      const type = await detectObjectType(image)
+      if (type) {
+        const data = await getInfoFromObjectType(type)
         /*const mockData = {
           itemName: 'Mobile Phone',
           materials: [
