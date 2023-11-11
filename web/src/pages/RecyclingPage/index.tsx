@@ -28,18 +28,27 @@ const RecyclingPage = () => {
 
   return (
     <div className="recycle-container">
-      <a href="/"><img className="rawcycle-logo-results" src={rawcycle}></img></a>
+      <a href="/">
+        <img className="rawcycle-logo-results" src={rawcycle}></img>
+      </a>
       <h1>How to recycle {itemName}</h1>
       {loading ? (
         <PropagateLoader color="black" />
       ) : (
-        <Card style={{ padding: 16 }}><p>{recycleInstructions}</p></Card>
+        <Card style={{ padding: 16, maxWidth: '400px' }}>
+          <p style={{ margin: 0 }}>{recycleInstructions}</p>
+        </Card>
       )}
       <Button
         variant="contained"
         target="_blank"
         href="https://www.kierratys.info/?lat=60.29&lng=24.8233&zoom=11&filters=117#"
-        sx={{ marginTop: '20px' }}
+        sx={{
+          marginTop: '30px',
+          backgroundColor: '#F8D101',
+          color: 'black',
+          ':hover': { backgroundColor: '#ceffd3' },
+        }}
       >
         Recycle!
       </Button>

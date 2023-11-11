@@ -33,7 +33,7 @@ const SellPage = () => {
             <h4>{buyer.name}</h4>
             <div className="sell-row-right">
               <p>
-                {getRandomValue(totalValue * 0.4, totalValue * 0.6).toFixed(1)}$
+                {getRandomValue(totalValue * 0.4, totalValue * 0.6).toFixed(1)}€
               </p>
               <Button
                 variant="contained"
@@ -42,7 +42,11 @@ const SellPage = () => {
                   buyer.url ||
                   `https://www.google.com/maps/search/${buyer.name}`
                 }
-                sx={{ backgroundColor: '#F8D101', color: 'black' }}
+                sx={{
+                  backgroundColor: '#F8D101',
+                  color: 'black',
+                  ':hover': { backgroundColor: '#ceffd3' },
+                }}
               >
                 Sell
               </Button>

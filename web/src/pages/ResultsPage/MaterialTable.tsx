@@ -27,8 +27,8 @@ const MaterialTable: FC<Props> = ({ data }) => {
         <TableBody>
           <TableRow>
             <TableCell>Total</TableCell>
-            <TableCell>{data.totalQuantity}g</TableCell>
-            <TableCell>{data.totalValue.toFixed(2)}$</TableCell>
+            <TableCell>{data.totalQuantity.toFixed(1)}g</TableCell>
+            <TableCell>{data.totalValue.toFixed(2)}€</TableCell>
             <TableCell>{data.totalConsumption.toFixed(2)} kWh</TableCell>
           </TableRow>
           {data?.materials.map((material, index) => {
@@ -43,7 +43,7 @@ const MaterialTable: FC<Props> = ({ data }) => {
                   )}
                 </TableCell>
                 <TableCell>{material.quantity} g</TableCell>
-                <TableCell>{material.value.toFixed(2)}$</TableCell>
+                <TableCell>{material.value.toFixed(2)}€</TableCell>
                 <TableCell>{material.consumption.toFixed(2)} kWh</TableCell>
               </TableRow>
             )
