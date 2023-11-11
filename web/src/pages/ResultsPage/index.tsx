@@ -41,10 +41,7 @@ const ResultsScreen = () => {
           <Button
             variant="contained"
             size="large"
-            onClick={() => {
-              console.log('navigate recycle')
-              navigate(`/recycle/${itemName}`)
-            }}
+            onClick={() => navigate(`/recycle/${itemName}`)}
           >
             Recycle
           </Button>

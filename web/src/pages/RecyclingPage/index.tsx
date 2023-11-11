@@ -5,7 +5,7 @@ import { PropagateLoader } from 'react-spinners'
 import axios from 'axios'
 
 import './style.css'
-import { Button } from '@mui/material'
+import { Card, Button } from '@mui/material'
 
 const RecyclingPage = () => {
   const [loading, setLoading] = useState(false)
@@ -28,14 +28,12 @@ const RecyclingPage = () => {
 
   return (
     <div className="recycle-container">
-      <a href="/">
-        <img className="rawcycle-logo-results" src={rawcycle}></img>
-      </a>
+      <a href="/"><img className="rawcycle-logo-results" src={rawcycle}></img></a>
       <h1>How to recycle {itemName}</h1>
       {loading ? (
         <PropagateLoader color="black" />
       ) : (
-        <p>{recycleInstructions}</p>
+        <Card style={{ padding: 16 }}><p>{recycleInstructions}</p></Card>
       )}
       <Button
         variant="contained"

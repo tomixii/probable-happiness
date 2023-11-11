@@ -23,6 +23,11 @@
   margin-bottom: 30px;
 }
 
+.button-container button {
+  background-color: #CEFFD3;
+  color: black
+}
+
 .rawcycle-logo-results {
   width: 80px;
 }
