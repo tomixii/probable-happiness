@@ -51,7 +51,7 @@ export default function PhotoPage() {
             {loading && (
               <div className="loader-container">
                 <p>Rawcycling</p>
-                <PropagateLoader color="white" />
+                <PropagateLoader color="black" />
               </div>
             )}
           </>
@@ -72,7 +72,7 @@ export default function PhotoPage() {
           </>
         )}
       </div>
-      {!cameraLoaded && <PropagateLoader color="white" />}
+      {!cameraLoaded && <PropagateLoader color="black" />}
     </div>
   )
 }

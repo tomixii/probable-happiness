@@ -33,7 +33,7 @@ const RecyclingPage = () => {
       </a>
       <h1>How to recycle {itemName}</h1>
       {loading ? (
-        <PropagateLoader color="white" />
+        <PropagateLoader color="black" />
       ) : (
         <p>{recycleInstructions}</p>
       )}

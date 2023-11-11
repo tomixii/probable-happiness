@@ -66,7 +66,7 @@ const ResultsScreen = () => {
       {data?.materials?.length > 0 && itemName !== 'unknown' ? (
         <MaterialTable data={data} />
       ) : (
-        <Card style={{ padding: 16, backgroundColor: '#F8D101' }}>
+        <Card style={{ padding: 16 }}>
           <p>
             Seems that your item might not contain any critical raw materials.
             It is still important to recycle it correctly!
