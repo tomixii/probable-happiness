@@ -1,17 +1,16 @@
-import { useState } from 'react'
-import rawcycle from './assets/rawcycle_logo.svg'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './App.css'
+import HomePage from './pages/HomePage'
+import ResultsPage from './pages/ResultsPage'
+import PhotoPage from './pages/PhotoPage'
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <button onClick={() => console.log('click')}>
-        <img src={rawcycle}></img>
-      </button>
-    </>
-  )
+  const router = createBrowserRouter([
+    { path: '/', element: <HomePage /> },
+    { path: '/capture', element: <PhotoPage /> },
+    { path: '/results/:itemName', element: <ResultsPage /> },
+  ])
+  return <RouterProvider router={router} />
 }
 
 export default App
