@@ -1,21 +1,24 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
-import Ionicons from '@expo/vector-icons/Ionicons'
-import { Link } from 'expo-router'
-import { colors } from '../styles/colors'
-import PhotoButton from '../components/PhotoButton'
+import { Link } from 'expo-router';
+import { Stack } from 'expo-router';
+import { colors } from '../styles/colors';
+import PhotoButton from '../components/PhotoButton';
 
 const HomeScreen = () => {
   return (
-    <LinearGradient colors={[colors.main, 'black']} style={styles.container}>
-      <Text style={styles.headerStyle}>Rawcycle</Text>
-
-      <Link href="/photo" asChild>
-        <PhotoButton />
-      </Link>
-    </LinearGradient>
-  )
+      <LinearGradient colors={[colors.main, 'black']} style={styles.container}>
+            <Stack.Screen
+                options={{
+                    headerStyle: false,
+                }}
+            />
+            <Link href="/photo" asChild>
+            <PhotoButton />
+            </Link>
+            </LinearGradient>
+    )
 }
 
 export default HomeScreen
