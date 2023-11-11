@@ -1,7 +1,7 @@
 {
   "name": "probable-happiness",
   "version": "1.0.0",
-  "main": "node_modules/expo/AppEntry.js",
+  "main": "expo-router/entry",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
@@ -13,6 +13,7 @@
     "axios": "^1.6.1",
     "expo": "~49.0.15",
     "expo-camera": "~13.4.4",
+    "expo-router": "^2.0.12",
     "expo-status-bar": "~1.6.0",
     "react": "18.2.0",
     "react-dom": "^18.2.0",
@@ -23,6 +24,10 @@
     "@babel/core": "^7.20.0",
     "@types/react": "~18.2.14",
     "typescript": "^5.1.3"
+  },
+  "overrides": {
+    "metro": "0.76.0",
+    "metro-resolver": "0.76.0"
   },
   "private": true
 }
