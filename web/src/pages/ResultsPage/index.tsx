@@ -40,11 +40,7 @@ const ResultsScreen = () => {
           <Button
             variant="contained"
             size="large"
-            onClick={() => {
-              console.log('navigate recycle')
-              navigate(`/recycle/${itemName}`)
-
-            }}
+            onClick={() => navigate(`/recycle/${itemName}`)}
           >
             Recycle
           </Button>
@@ -54,14 +50,16 @@ const ResultsScreen = () => {
             </Button>
           }
         </div>
-      )}
-      {data?.materials?.length > 0 && itemName !== 'unknown' ? (
-        <MaterialTable data={data} />
-      ) : <Card style={{ padding: 16, backgroundColor: '#F8D101' }}>
-        <p>Seems that your item might not contain any critical raw materials. It is still important to recycle it correctly!</p>
-      </Card>
+      )
       }
-    </div>
+      {
+        data?.materials?.length > 0 && itemName !== 'unknown' ? (
+          <MaterialTable data={data} />
+        ) : <Card style={{ padding: 16, backgroundColor: '#F8D101' }}>
+          <p>Seems that your item might not contain any critical raw materials. It is still important to recycle it correctly!</p>
+        </Card>
+      }
+    </div >
   )
 }
 
