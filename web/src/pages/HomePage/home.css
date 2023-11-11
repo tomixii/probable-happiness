@@ -9,6 +9,7 @@
 }
 
 .home-container>h1 {
+    max-width: 500px;
     font-size: 40px;
     flex: 2;
     margin-bottom: 0px;
@@ -20,7 +21,7 @@
 
 .home-container h2 {
     margin-top: 0;
-    margin-bottom: 80px;
+    margin-bottom: 60px;
 }
 
 .home-container>h1,
@@ -42,6 +43,21 @@
     width: 100%;
     height: auto;
     animation: pulse 4s ease-in-out infinite;
+}
+
+.camera-button-icon {
+    width: 100%;
+    height: auto;
+}
+
+.action-button {}
+
+.camera-button {
+    background: none;
+    border: none;
+    border-radius: 50%;
+    background-color: #F8D101;
+    filter: drop-shadow(5px 9px 10px rgba(0, 0, 0, 0.36));
 }
 
 .rawcycle-button {

@@ -5,7 +5,6 @@ import {
 } from '@aws-sdk/client-rekognition'
 
 export const detectObjectType = async (image: string) => {
-  // a client can be shared by different commands.
   const client = new RekognitionClient({ region: 'eu-west-1' })
 
   const params: DetectCustomLabelsCommandInput = {
