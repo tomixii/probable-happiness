@@ -9,10 +9,10 @@ interface OpenAIResult {
   quantity: number
 }
 
-export const getInfoFromObjectType = async (types: string[]) => {
-  console.log(types)
+export const getInfoFromObjectType = async (type: string) => {
+  console.log(type)
 
-  const messageContent = `[only JSON] Response with JSON only. First, find the most probable consumer product from a list of words: "${types}" and assign the value to variable X.
+  const messageContent = `[only JSON] Response with JSON only. First, find the most probable consumer product from a category: "${type}" and assign the value to variable X.
   Create an exhaustive list of critical raw materials found in X.
   Create a JSON object that lists all the critical raw materials in the list.. 
   
@@ -54,7 +54,7 @@ export const getInfoFromObjectType = async (types: string[]) => {
     )
 
     return {
-      itemName: types[0],
+      itemName: type,
       materials: transformedResults,
       totalQuantity: transformedResults.reduce(
         (acc, curr) => acc + curr.quantity,
@@ -68,7 +68,7 @@ export const getInfoFromObjectType = async (types: string[]) => {
     }
   } catch (err) {
     return {
-      itemName: types[0],
+      itemName: type,
       materials: null,
     }
   }
@@ -95,7 +95,7 @@ const parseOpenAIResults = (results: OpenAIResult[]) => {
         },
       ]
     })
-    .sort((a, b) => (a === b ? 0 : a ? -1 : 1))
+    .sort((a, b) => (a.critical === b.critical ? 0 : a.critical ? -1 : 1))
 }
 
 export const getRecyclingInstructions = async (item: string) => {

@@ -4,6 +4,8 @@ import React, { useState } from 'react'
 import { PropagateLoader } from 'react-spinners'
 import axios from 'axios'
 
+import './style.css'
+
 const RecyclingPage = () => {
   const [loading, setLoading] = useState(false)
   const [recycleInstructions, setRecycleInstructions] = useState('')
@@ -26,10 +28,9 @@ const RecyclingPage = () => {
   }, [])
 
   return (
-    <div className="container">
+    <div className="recycle-container">
       <img className="rawcycle-logo-results" src={rawcycle}></img>
-      <h1>How to recycle</h1>
-      <h4>{itemName}</h4>
+      <h1>How to recycle {itemName}</h1>
       {loading ? (
         <PropagateLoader color="white" />
       ) : (

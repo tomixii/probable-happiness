@@ -19,7 +19,7 @@ const ResultsScreen = () => {
         {itemName !== 'unknown' ? itemName : 'Unknown object'}
       </h2>
       {itemName === 'unknown' && (
-        <div>
+        <div className="item-not-found">
           <p>
             Rawcycle was not able to find an object in the photo, please try
             again.
@@ -33,19 +33,21 @@ const ResultsScreen = () => {
           </Button>
         </div>
       )}
-      <div className="button-container">
-        <Button
-          variant="contained"
-          size="large"
-          onClick={() => navigate(`/recycle/${itemName}`)}
-        >
-          Recycle
-        </Button>
-        <Button variant="contained" size="large">
-          Sell
-        </Button>
-      </div>
-      {data.materials.length > 0 && itemName !== 'unknown' ? (
+      {itemName !== 'unknown' && (
+        <div className="button-container">
+          <Button
+            variant="contained"
+            size="large"
+            onClick={() => navigate(`/recycle/${itemName}`)}
+          >
+            Recycle
+          </Button>
+          <Button variant="contained" size="large">
+            Sell
+          </Button>
+        </div>
+      )}
+      {data?.materials?.length > 0 && itemName !== 'unknown' ? (
         <MaterialTable data={data} />
       ) : null}
     </div>
