@@ -9,7 +9,7 @@ interface Props {
 
 const MaterialTable: FC<Props> = ({ data }) => {
   return (
-    <Card sx={{ padding: '16px' }}>
+    <Card sx={{ padding: '16px', overflow: 'auto' }}>
       <p className="material-warning">
         Don't throw this item to mixed waste, it contains valuable materials:
       </p>
