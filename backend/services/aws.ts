@@ -34,24 +34,23 @@ const filterLabels = (labels: Label[]) => {
   )
 }
 
-const findMostLikely = (labels: Label[]) => {
-  let currentSelection = labels?.[0]?.Name
-  let someChildFound = false
-  const foundNames = []
-  labels
-    .sort((a, b) => a.Parents?.length - b.Parents?.length)
-    .forEach((label) => {
-      if (someChildFound && label.Parents?.length === 0) return currentSelection
-      foundNames.push(label.Name)
-      if (label.Parents) {
-        if (
-          foundNames.some((name) =>
-            label.Parents.some((parent) => parent.Name === name)
-          )
-        ) {
-          currentSelection = label.Name
-        }
+const findMostLikely = (labels: Label[]): String => {
+
+  const parents = []
+  labels.forEach(label => {
+    label.Parents.forEach(parent => {
+      if (!parents.includes(parent)) {
+        parents.push(parent.Name)
       }
     })
-  return currentSelection
+  })
+  console.log(parents)
+  const withoutParent = labels.filter(label => {
+    return !parents.includes(label.Name)
+  })
+  console.log(withoutParent)
+  const best = withoutParent.reduce((a, b) => a.Confidence > b.Confidence ? a : b)
+
+  console.log(best)
+  return best.Name
 }
