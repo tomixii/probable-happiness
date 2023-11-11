@@ -1,0 +1,152 @@
+[
+  {
+    "material": "Antimony",
+    "price_per_kg": 125.4,
+    "energy_per_kg_kWh": 373.75
+  },
+  {
+    "material": "Hafnium",
+    "price_per_kg": 212.39,
+    "energy_per_kg_kWh": 260.14
+  },
+  {
+    "material": "Phosphorus",
+    "price_per_kg": 1397.53,
+    "energy_per_kg_kWh": 79.0
+  },
+  {
+    "material": "Baryte",
+    "price_per_kg": 826.51,
+    "energy_per_kg_kWh": 73.7
+  },
+  {
+    "material": "Heavy Rare Earth Elements",
+    "price_per_kg": 1239.42,
+    "energy_per_kg_kWh": 10.88
+  },
+  {
+    "material": "Scandium",
+    "price_per_kg": 3416.64,
+    "energy_per_kg_kWh": 42.99
+  },
+  {
+    "material": "Beryllium",
+    "price_per_kg": 7386.83,
+    "energy_per_kg_kWh": 416.89
+  },
+  {
+    "material": "Light Rare Earth Elements",
+    "price_per_kg": 1057.9,
+    "energy_per_kg_kWh": 46.61
+  },
+  {
+    "material": "Silicon",
+    "price_per_kg": 4892.64,
+    "energy_per_kg_kWh": 103.56
+  },
+  {
+    "material": "Bismuth",
+    "price_per_kg": 7126.62,
+    "energy_per_kg_kWh": 13.81
+  },
+  {
+    "material": "Indium",
+    "price_per_kg": 275.58,
+    "energy_per_kg_kWh": 127.0
+  },
+  {
+    "material": "Tantalum",
+    "price_per_kg": 8017.99,
+    "energy_per_kg_kWh": 116.78
+  },
+  {
+    "material": "Borate",
+    "price_per_kg": 158.23,
+    "energy_per_kg_kWh": 10.77
+  },
+  {
+    "material": "Magnesium",
+    "price_per_kg": 45.22,
+    "energy_per_kg_kWh": 60.6
+  },
+  {
+    "material": "Tungsten",
+    "price_per_kg": 8280.22,
+    "energy_per_kg_kWh": 491.48
+  },
+  {
+    "material": "Cobalt",
+    "price_per_kg": 33.74,
+    "energy_per_kg_kWh": 375.43
+  },
+  {
+    "material": "Natural Graphite",
+    "price_per_kg": 1153.67,
+    "energy_per_kg_kWh": 94.64
+  },
+  {
+    "material": "Vanadium",
+    "price_per_kg": 83.08,
+    "energy_per_kg_kWh": 59.36
+  },
+  {
+    "material": "Coking Coal",
+    "price_per_kg": 72.68,
+    "energy_per_kg_kWh": 58.89
+  },
+  {
+    "material": "Natural Rubber",
+    "price_per_kg": 741.02,
+    "energy_per_kg_kWh": 25.57
+  },
+  {
+    "material": "Bauxite",
+    "price_per_kg": 1195.24,
+    "energy_per_kg_kWh": 95.84
+  },
+  {
+    "material": "Fluorspar",
+    "price_per_kg": 980.35,
+    "energy_per_kg_kWh": 82.06
+  },
+  {
+    "material": "Niobium",
+    "price_per_kg": 5653.84,
+    "energy_per_kg_kWh": 116.33
+  },
+  {
+    "material": "Lithium",
+    "price_per_kg": 20.95,
+    "energy_per_kg_kWh": 212.69
+  },
+  {
+    "material": "Gallium",
+    "price_per_kg": 277.68,
+    "energy_per_kg_kWh": 437.37
+  },
+  {
+    "material": "Platinum",
+    "price_per_kg": 27084.34,
+    "energy_per_kg_kWh": 158.32
+  },
+  {
+    "material": "Titanium",
+    "price_per_kg": 8373.02,
+    "energy_per_kg_kWh": 433.37
+  },
+  {
+    "material": "Germanium",
+    "price_per_kg": 637.05,
+    "energy_per_kg_kWh": 32.23
+  },
+  {
+    "material": "Phosphate rock",
+    "price_per_kg": 1027.29,
+    "energy_per_kg_kWh": 49.09
+  },
+  {
+    "material": "Strontium",
+    "price_per_kg": 724.71,
+    "energy_per_kg_kWh": 332.89
+  }
+]

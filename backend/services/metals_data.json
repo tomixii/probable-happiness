@@ -1,0 +1,242 @@
+[
+  {
+    "metal": "Aluminum",
+    "price_per_kg": 2.22,
+    "energy_per_kg_kWh": 131.5
+  },
+  {
+    "metal": "Antimony",
+    "price_per_kg": 125.4,
+    "energy_per_kg_kWh": 373.75
+  },
+  {
+    "metal": "Arsenic",
+    "price_per_kg": 4522.86,
+    "energy_per_kg_kWh": 470.49
+  },
+  {
+    "metal": "Barium",
+    "price_per_kg": 8735.57,
+    "energy_per_kg_kWh": 406.15
+  },
+  {
+    "metal": "Beryllium",
+    "price_per_kg": 7386.83,
+    "energy_per_kg_kWh": 416.89
+  },
+  {
+    "metal": "Bismuth",
+    "price_per_kg": 7126.62,
+    "energy_per_kg_kWh": 13.81
+  },
+  {
+    "metal": "Cadmium",
+    "price_per_kg": 8360.59,
+    "energy_per_kg_kWh": 180.03
+  },
+  {
+    "metal": "Cerium",
+    "price_per_kg": 2981.76,
+    "energy_per_kg_kWh": 361.12
+  },
+  {
+    "metal": "Chromium",
+    "price_per_kg": 2115.59,
+    "energy_per_kg_kWh": 58.46
+  },
+  {
+    "metal": "Cobalt",
+    "price_per_kg": 33.74,
+    "energy_per_kg_kWh": 375.43
+  },
+  {
+    "metal": "Copper",
+    "price_per_kg": 7.9,
+    "energy_per_kg_kWh": 147.49
+  },
+  {
+    "metal": "Gallium",
+    "price_per_kg": 277.68,
+    "energy_per_kg_kWh": 437.37
+  },
+  {
+    "metal": "Gold",
+    "price_per_kg": 62000.74,
+    "energy_per_kg_kWh": 193.02
+  },
+  {
+    "metal": "Hafnium",
+    "price_per_kg": 212.39,
+    "energy_per_kg_kWh": 260.14
+  },
+  {
+    "metal": "Indium",
+    "price_per_kg": 275.58,
+    "energy_per_kg_kWh": 127.0
+  },
+  {
+    "metal": "Iron",
+    "price_per_kg": 6261.9,
+    "energy_per_kg_kWh": 178.66
+  },
+  {
+    "metal": "Lead",
+    "price_per_kg": 2.15,
+    "energy_per_kg_kWh": 42.17
+  },
+  {
+    "metal": "Lithium",
+    "price_per_kg": 20.95,
+    "energy_per_kg_kWh": 212.69
+  },
+  {
+    "metal": "Magnesium",
+    "price_per_kg": 6292.23,
+    "energy_per_kg_kWh": 182.45
+  },
+  {
+    "metal": "Manganese",
+    "price_per_kg": 2334.82,
+    "energy_per_kg_kWh": 457.2
+  },
+  {
+    "metal": "Mercury",
+    "price_per_kg": 9198.27,
+    "energy_per_kg_kWh": 213.81
+  },
+  {
+    "metal": "Molybdenum",
+    "price_per_kg": 82.46,
+    "energy_per_kg_kWh": 160.79
+  },
+  {
+    "metal": "Nickel",
+    "price_per_kg": 5783.88,
+    "energy_per_kg_kWh": 290.88
+  },
+  {
+    "metal": "Niobium",
+    "price_per_kg": 5653.84,
+    "energy_per_kg_kWh": 116.33
+  },
+  {
+    "metal": "Osmium",
+    "price_per_kg": 463.38,
+    "energy_per_kg_kWh": 350.2
+  },
+  {
+    "metal": "Palladium",
+    "price_per_kg": 31112.44,
+    "energy_per_kg_kWh": 54.01
+  },
+  {
+    "metal": "Platinum",
+    "price_per_kg": 27084.34,
+    "energy_per_kg_kWh": 158.32
+  },
+  {
+    "metal": "Potassium",
+    "price_per_kg": 2393.22,
+    "energy_per_kg_kWh": 78.6
+  },
+  {
+    "metal": "Rhenium",
+    "price_per_kg": 9393.02,
+    "energy_per_kg_kWh": 474.21
+  },
+  {
+    "metal": "Rhodium",
+    "price_per_kg": 146285.31,
+    "energy_per_kg_kWh": 184.2
+  },
+  {
+    "metal": "Ruthenium",
+    "price_per_kg": 14950.42,
+    "energy_per_kg_kWh": 453.68
+  },
+  {
+    "metal": "Scandium",
+    "price_per_kg": 3416.64,
+    "energy_per_kg_kWh": 42.99
+  },
+  {
+    "metal": "Silicon",
+    "price_per_kg": 4892.64,
+    "energy_per_kg_kWh": 103.56
+  },
+  {
+    "metal": "Silver",
+    "price_per_kg":723,    
+    "energy_per_kg_kWh": 348.83
+  },
+  {
+    "metal": "Sodium",
+    "price_per_kg": 9950.42,
+    "energy_per_kg_kWh": 394.0
+  },
+  {
+    "metal": "Strontium",
+    "price_per_kg": 724.71,
+    "energy_per_kg_kWh": 332.89
+  },
+  {
+    "metal": "Tantalum",
+    "price_per_kg": 8017.99,
+    "energy_per_kg_kWh": 116.78
+  },
+  {
+    "metal": "Tellurium",
+    "price_per_kg": 80.35,
+    "energy_per_kg_kWh": 399.49
+  },
+  {
+    "metal": "Thallium",
+    "price_per_kg": 5931.91,
+    "energy_per_kg_kWh": 267.64
+  },
+  {
+    "metal": "Thorium",
+    "price_per_kg": 2234.73,
+    "energy_per_kg_kWh": 70.06
+  },
+  {
+    "metal": "Tin",
+    "price_per_kg": 24.68,
+    "energy_per_kg_kWh": 349.68
+  },
+  {
+    "metal": "Titanium",
+    "price_per_kg": 8373.02,
+    "energy_per_kg_kWh": 433.37
+  },
+  {
+    "metal": "Tungsten",
+    "price_per_kg": 8280.22,
+    "energy_per_kg_kWh": 491.48
+  },
+  {
+    "metal": "Uranium",
+    "price_per_kg": 162.4,
+    "energy_per_kg_kWh": 437.3
+  },
+  {
+    "metal": "Vanadium",
+    "price_per_kg": 7375.14,
+    "energy_per_kg_kWh": 494.09
+  },
+  {
+    "metal": "Yttrium",
+    "price_per_kg": 8498.13,
+    "energy_per_kg_kWh": 412.57
+  },
+  {
+    "metal": "Zinc",
+    "price_per_kg": 2.51,
+    "energy_per_kg_kWh": 143.56
+  },
+  {
+    "metal": "Zirconium",
+    "price_per_kg": 6586.66,
+    "energy_per_kg_kWh": 479.2
+  }
+]

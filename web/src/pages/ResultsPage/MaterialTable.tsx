@@ -1,23 +1,56 @@
 import { FC } from 'react'
-import { MaterialResult } from '../../types'
+import { ObjectInfo } from '../../types'
+import Card from '@mui/material/Card'
+import { Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material'
 
 interface Props {
-  materials: MaterialResult[]
+  data: ObjectInfo
 }
 
-const MaterialTable: FC<Props> = ({ materials }) => {
+const MaterialTable: FC<Props> = ({ data }) => {
   return (
-    <div>
-      {materials.map((material, index) => {
-        return (
-          <div key={index}>
-            <p>{material.material}</p>
-            <p>{material.value}</p>
-            <p>{material.quantity}</p>
-          </div>
-        )
-      })}
-    </div>
+    <Card sx={{ background: '#F8D101', padding: '16px' }}>
+      <p className="material-warning">
+        Don't throw this item to mixed waste, it contains valuable materials:
+      </p>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell sx={{ fontWeight: 'bold' }}>Material</TableCell>
+            <TableCell sx={{ fontWeight: 'bold' }}>Amount</TableCell>
+            <TableCell sx={{ fontWeight: 'bold' }}>Price</TableCell>
+            <TableCell sx={{ fontWeight: 'bold' }}>
+              Energy Consumption
+            </TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          <TableRow>
+            <TableCell>Total</TableCell>
+            <TableCell>{data.totalQuantity}g</TableCell>
+            <TableCell>{data.totalValue.toFixed(2)}$</TableCell>
+            <TableCell>{data.totalConsumption.toFixed(2)} kWh</TableCell>
+          </TableRow>
+          {data?.materials.map((material, index) => {
+            return (
+              <TableRow className="material-row" key={index}>
+                <TableCell>
+                  <>{material.material}</>
+                  {material.critical && (
+                    <p style={{ color: 'red', margin: '4px 0 0 0' }}>
+                      Critical
+                    </p>
+                  )}
+                </TableCell>
+                <TableCell>{material.quantity} g</TableCell>
+                <TableCell>{material.value.toFixed(2)}$</TableCell>
+                <TableCell>{material.consumption.toFixed(2)} kWh</TableCell>
+              </TableRow>
+            )
+          })}
+        </TableBody>
+      </Table>
+    </Card>
   )
 }
 

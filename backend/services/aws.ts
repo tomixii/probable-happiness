@@ -18,7 +18,7 @@ export const detectObjectType = async (image: string) => {
   const response = await client.send(command)
   console.log(console.dir(response, { depth: null }))
 
-  const validLabels = response.Labels?.filter((label) => label.Confidence > 98)
+  const validLabels = response.Labels?.filter((label) => label.Confidence > 95)
   const setOfLabels = new Set(validLabels?.map((label) => label.Name))
 
   return [...setOfLabels] || null

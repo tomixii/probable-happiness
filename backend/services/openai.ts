@@ -1,6 +1,6 @@
 import OpenAI from 'openai'
-
-import prices from './prices.json'
+import CRMs from './critical_raw_materials.json'
+import metals from './metals_data.json'
 
 const openai = new OpenAI({ apiKey: Bun.env.OPENAI_API_KEY })
 
@@ -12,34 +12,29 @@ interface OpenAIResult {
 export const getInfoFromObjectType = async (types: string[]) => {
   console.log(types)
 
-  const messageContent = `First, find the most probable consumer product from a list of words: "Electronics,Mobile Phone,Phone" and assign the value to variable X.
-  Create an exhaustive list of rare materials found in X.
-  From all the items in the list create a JSON object:
+  const messageContent = `[only JSON] Response with JSON only. First, find the most probable consumer product from a list of words: "${types}" and assign the value to variable X.
+  Create an exhaustive list of critical raw materials found in X.
+  Create a JSON object that lists all the critical raw materials in the list.. 
   
+  For each critical raw material, include the following properties: 
+  "material," which indicates the type of critical raw material; 
+  "quantity," which specifies the amount of the material in grams;
   Use the following template for the JSON object:
   
   [
     {
       "material": "MaterialName",
-      "quantity": MaterialQuantityInGrams,
-      "value": MaterialValueInUSD,
-      "consumption": EnergyConsumptionInKWh
+      "quantity": MaterialQuantityInGrams
     },
     ...
   ]
   
-  In this JSON structure:
-  
-  "MaterialName" is the name of the rare material used in X.
-  "MaterialQuantityInGrams" is the amount of the material in grams found in X.
-  "MaterialValueInUSD" is the real-world monetary value of the material, calculated as the quantity in grams multiplied by the real-world price per gram of the material.
-  "EnergyConsumptionInKWh" represents the total amount of energy required to produce the specified quantity of the material, calculated as the quantity in grams multiplied by the energy required to produce one gram of the material.
-  The last object in the array will provide the total sum of all quantities, values, and energy consumption for all materials listed.`
+  Replace "MaterialName" with the name of the material, "MaterialQuantityInGrams" with the number of grams. Assume hypothetical values where actual data is not available.`
 
   console.log(messageContent)
 
   const completion = await openai.chat.completions.create({
-    model: 'gpt-3.5-turbo',
+    model: 'gpt-4',
     response_format: { type: 'text' },
     messages: [
       {
@@ -50,24 +45,49 @@ export const getInfoFromObjectType = async (types: string[]) => {
   })
   console.dir(completion, { depth: null })
 
-  const data: OpenAIResult[] = JSON.parse(
-    completion?.choices?.[0]?.message?.content || ''
-  )
+  const data: any = JSON.parse(completion?.choices?.[0]?.message?.content)
+
   console.log(data)
 
-  const transformedResults = parseOpenAIResults(data)
+  const transformedResults = parseOpenAIResults(
+    Array.isArray(data) ? data : [data]
+  )
 
   return {
-    name: types[0],
+    itemName: types[0],
     materials: transformedResults,
+    totalQuantity: transformedResults.reduce(
+      (acc, curr) => acc + curr.quantity,
+      0
+    ),
     totalValue: transformedResults.reduce((acc, curr) => acc + curr.value, 0),
+    totalConsumption: transformedResults.reduce(
+      (acc, curr) => acc + curr.consumption,
+      0
+    ),
   }
 }
 
 const parseOpenAIResults = (results: OpenAIResult[]) => {
-  return results.map((result) => ({
-    ...result,
-    value: prices[result.material.toLowerCase()] || 0,
-    consumption: 0,
-  }))
+  return results
+    .flatMap((result) => {
+      const critical = CRMs.find(
+        (elem) => elem.material.toLowerCase() === result.material.toLowerCase()
+      )
+      const metal = metals.find(
+        (elem) => elem.metal.toLowerCase() === result.material.toLowerCase()
+      )
+      if (!metal && !critical) return []
+
+      const data = critical || metal
+      return [
+        {
+          ...result,
+          value: data.price_per_kg * (result.quantity / 1000),
+          consumption: (data.energy_per_kg_kWh * result.quantity) / 1000,
+          critical: !!critical,
+        },
+      ]
+    })
+    .sort((a, b) => (a === b ? 0 : a ? -1 : 1))
 }

@@ -13,7 +13,7 @@ app.use(cors())
 app.use('/items', itemsRouter)
 app.use(
   audit({
-    logger: console, // Existing bunyan logger
+    logger: console,
   })
 )
 
