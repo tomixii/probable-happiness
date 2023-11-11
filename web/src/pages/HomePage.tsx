@@ -1,10 +1,14 @@
-import rawcycle from '../assets/rawcycle_logo.svg'
+import rawcycle from '../assets/logo.webp'
 import './styles/home.css'
 
 export default function HomePage() {
-  return <>
-    <button className='rawcycle-button' onClick={() => console.log('click')}>
-      <img className='rawcycle-logo' src={rawcycle}></img>
-    </button>
-  </>
+  return <div className='home-container'>
+    <h1>Give new life to your critical raw materials</h1>
+    <div className='button-container'>
+      <h2>Tap to Rawcycle</h2>
+      <a className='rawcycle-button' href="/capture">
+        <img className='rawcycle-logo' src={rawcycle}></img>
+      </a>
+    </div>
+  </div>
 }
