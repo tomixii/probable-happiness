@@ -28,7 +28,9 @@ const RecyclingPage = () => {
 
   return (
     <div className="recycle-container">
-      <img className="rawcycle-logo-results" src={rawcycle}></img>
+      <a href="/">
+        <img className="rawcycle-logo-results" src={rawcycle}></img>
+      </a>
       <h1>How to recycle {itemName}</h1>
       {loading ? (
         <PropagateLoader color="white" />
