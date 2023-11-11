@@ -27,7 +27,7 @@ const SellPage = () => {
         <img className="rawcycle-logo-results" src={rawcycle}></img>
       </a>
       <h1>Potential buyers for {itemName}</h1>
-      <Card sx={{ padding: '16px', minWidth: '380px', background: 'white' }}>
+      <Card sx={{ padding: '16px', minWidth: '300px', background: 'white' }}>
         {buyers.map((buyer) => (
           <div className="sell-row" key={buyer.name}>
             <h4>{buyer.name}</h4>
