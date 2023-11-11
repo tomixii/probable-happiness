@@ -43,15 +43,12 @@ const findMostLikely = (labels: Label[]): string => {
       }
     })
   })
-  console.log(parents)
   const withoutParent = labels.filter((label) => {
     return !parents.includes(label.Name)
   })
-  console.log(withoutParent)
   const best = withoutParent.reduce((a, b) =>
     a.Confidence > b.Confidence ? a : b
   )
 
-  console.log(best)
   return best.Name
 }
