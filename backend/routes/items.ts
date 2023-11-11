@@ -1,5 +1,6 @@
 import { Router, Request, Response } from 'express'
-import { getDataFromImage } from '../services/openai'
+import { getInfoFromObjectType } from '../services/openai'
+import { detectObjectType } from '../services/aws'
 
 interface ItemPostData {
   image: string
@@ -11,8 +12,13 @@ itemsRouter.post(
   '/',
   async (req: Request<null, null, ItemPostData>, res: Response) => {
     const { image } = req.body
-    const data = await getDataFromImage(image)
-    res.json(data)
+    const types = await detectObjectType(image)
+    if (types) {
+      const data = await getInfoFromObjectType(types)
+      res.json(data)
+    } else {
+      res.sendStatus(400)
+    }
   }
 )
 
