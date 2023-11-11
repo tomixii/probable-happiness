@@ -5,6 +5,7 @@ import { PropagateLoader } from 'react-spinners'
 import axios from 'axios'
 
 import './style.css'
+import { Button } from '@mui/material'
 
 const RecyclingPage = () => {
   const [loading, setLoading] = useState(false)
@@ -36,6 +37,13 @@ const RecyclingPage = () => {
       ) : (
         <p>{recycleInstructions}</p>
       )}
+      <Button
+        variant="contained"
+        href="https://www.kierratys.info/?lat=60.29&lng=24.8233&zoom=11&filters=117#"
+        sx={{ marginTop: '20px' }}
+      >
+        Recycle!
+      </Button>
     </div>
   )
 }

@@ -42,9 +42,19 @@ const ResultsScreen = () => {
           >
             Recycle
           </Button>
-          <Button variant="contained" size="large">
-            Sell
-          </Button>
+          {data?.materials?.length > 0 && (
+            <Button
+              variant="contained"
+              size="large"
+              onClick={() =>
+                navigate(`/sell/${itemName}`, {
+                  state: { totalValue: data.totalValue },
+                })
+              }
+            >
+              Sell
+            </Button>
+          )}
         </div>
       )}
       {data?.materials?.length > 0 && itemName !== 'unknown' ? (
