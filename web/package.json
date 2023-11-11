@@ -10,6 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.14.17",
     "axios": "^1.6.1",
     "is-mobile": "^4.0.0",
     "jslib-html5-camera-photo": "^3.3.4",

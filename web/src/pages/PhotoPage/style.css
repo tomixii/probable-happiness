@@ -41,3 +41,10 @@
     width: 100%;
   }
 }
+
+.camera-description {
+  width: 100%;
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 40px;
+}

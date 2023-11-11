@@ -32,7 +32,7 @@ export default function PhotoPage() {
         navigate(`/results/unknown`)
       }
     } catch (err) {
-      console.log(err)
+      navigate(`/results/unknown`)
     } finally {
       setLoading(false)
     }
@@ -56,13 +56,18 @@ export default function PhotoPage() {
             )}
           </>
         ) : (
-          <Camera
-            onTakePhoto={(dataUri) => {
-              handleTakePhoto(dataUri)
-            }}
-            onCameraStart={() => setCameraLoaded(true)}
-            idealFacingMode={isMobile() ? FACING_MODES.ENVIRONMENT : FACING_MODES.USER}
-          />
+          <>
+            <p className="camera-description">
+              Capture an object you want to recycle
+            </p>
+            <Camera
+              onTakePhoto={(dataUri) => {
+                handleTakePhoto(dataUri)
+              }}
+              onCameraStart={() => setCameraLoaded(true)}
+              idealFacingMode={isMobile() ? FACING_MODES.ENVIRONMENT : FACING_MODES.USER}
+            />
+          </>
         )}
       </div>
       {!cameraLoaded && <PropagateLoader color="white" />}
