@@ -44,27 +44,33 @@ export const getInfoFromObjectType = async (types: string[]) => {
     ],
   })
   console.dir(completion, { depth: null })
+  try {
+    const data: any = JSON.parse(completion?.choices?.[0]?.message?.content)
 
-  const data: any = JSON.parse(completion?.choices?.[0]?.message?.content)
+    console.log(data)
 
-  console.log(data)
+    const transformedResults = parseOpenAIResults(
+      Array.isArray(data) ? data : [data]
+    )
 
-  const transformedResults = parseOpenAIResults(
-    Array.isArray(data) ? data : [data]
-  )
-
-  return {
-    itemName: types[0],
-    materials: transformedResults,
-    totalQuantity: transformedResults.reduce(
-      (acc, curr) => acc + curr.quantity,
-      0
-    ),
-    totalValue: transformedResults.reduce((acc, curr) => acc + curr.value, 0),
-    totalConsumption: transformedResults.reduce(
-      (acc, curr) => acc + curr.consumption,
-      0
-    ),
+    return {
+      itemName: types[0],
+      materials: transformedResults,
+      totalQuantity: transformedResults.reduce(
+        (acc, curr) => acc + curr.quantity,
+        0
+      ),
+      totalValue: transformedResults.reduce((acc, curr) => acc + curr.value, 0),
+      totalConsumption: transformedResults.reduce(
+        (acc, curr) => acc + curr.consumption,
+        0
+      ),
+    }
+  } catch (err) {
+    return {
+      itemName: types[0],
+      materials: null,
+    }
   }
 }
 
@@ -90,4 +96,23 @@ const parseOpenAIResults = (results: OpenAIResult[]) => {
       ]
     })
     .sort((a, b) => (a === b ? 0 : a ? -1 : 1))
+}
+
+export const getRecyclingInstructions = async (item: string) => {
+  const messageContent = ``
+
+  console.log(messageContent)
+
+  const completion = await openai.chat.completions.create({
+    model: 'gpt-4',
+    response_format: { type: 'text' },
+    messages: [
+      {
+        role: 'user',
+        content: `Suggest me the best way to recycle ${item} in one sentence`,
+      },
+    ],
+  })
+
+  return completion?.choices?.[0]?.message?.content || ''
 }

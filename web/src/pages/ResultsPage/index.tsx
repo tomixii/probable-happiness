@@ -1,4 +1,4 @@
-import { useLocation, useParams } from 'react-router'
+import { useLocation, useNavigate, useParams } from 'react-router'
 import Button from '@mui/material/Button'
 import MaterialTable from './MaterialTable'
 import { ObjectInfo } from '../../types'
@@ -9,6 +9,7 @@ import './style.css'
 const ResultsScreen = () => {
   const { itemName } = useParams()
   const { state } = useLocation()
+  const navigate = useNavigate()
   const data: ObjectInfo = state?.data || null
 
   return (
@@ -17,15 +18,36 @@ const ResultsScreen = () => {
       <h2 className="header">
         {itemName !== 'unknown' ? itemName : 'Unknown object'}
       </h2>
+      {itemName === 'unknown' && (
+        <div>
+          <p>
+            Rawcycle was not able to find an object in the photo, please try
+            again.
+          </p>
+          <Button
+            variant="contained"
+            size="large"
+            onClick={() => navigate('/capture')}
+          >
+            Retry
+          </Button>
+        </div>
+      )}
       <div className="button-container">
-        <Button variant="contained" size="large">
+        <Button
+          variant="contained"
+          size="large"
+          onClick={() => navigate(`/recycle/${itemName}`)}
+        >
           Recycle
         </Button>
         <Button variant="contained" size="large">
           Sell
         </Button>
       </div>
-      {itemName !== 'unknown' ? <MaterialTable data={data} /> : null}
+      {data.materials.length > 0 && itemName !== 'unknown' ? (
+        <MaterialTable data={data} />
+      ) : null}
     </div>
   )
 }
