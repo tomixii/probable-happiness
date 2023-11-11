@@ -25,10 +25,12 @@ export default function App() {
             const photo = await cameraRef.current.takePictureAsync()
             console.log(photo)
             console.log(photo.base64?.length)
+            /*
             const response = await axios.post('http://localhost:8080/items', {
                 image: photo.base64,
             })
             console.log(response.data)
+            */
         }
     }
 

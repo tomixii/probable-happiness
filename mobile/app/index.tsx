@@ -2,12 +2,17 @@ import React from 'react'
 import { StyleSheet, Text, View, TouchableOpacity, Pressable } from 'react-native'
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { Link } from 'expo-router';
+import { Stack } from 'expo-router';
 
 export default function App() {
 
     return (
         <View style={styles.container}>
-
+            <Stack.Screen
+                options={{
+                    headerStyle: false,
+                }}
+            />
             <Link href="/photo" asChild>
                 <Ionicons name="md-checkmark-circle" size={32} color="green" />
             </Link>
