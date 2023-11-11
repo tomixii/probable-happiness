@@ -8,8 +8,8 @@ const buyers = [
   { name: 'Gigantti' },
   { name: 'Power' },
   { name: 'Verkkokauppa.com' },
-  { name: 'Fonum' },
-  { name: 'Swappie' },
+  { name: 'Fonum', url: 'https://www.fonum.fi/myy' },
+  { name: 'Swappie', url: 'https://swappie.com/fi/myy/iphone/' },
 ]
 
 const SellPage = () => {
@@ -25,17 +25,26 @@ const SellPage = () => {
     <div className="sell-container">
       <img className="rawcycle-logo-results" src={rawcycle}></img>
       <h1>Potential buyers for {itemName}</h1>
-      <Card sx={{ background: '#F8D101', padding: '16px' }}>
+      <Card sx={{ padding: '16px', minWidth: '380px', background: 'white' }}>
         {buyers.map((buyer) => (
-          <div key={buyer.name}>
+          <div className="sell-row" key={buyer.name}>
             <h4>{buyer.name}</h4>
-            <p>{getRandomValue(totalValue * 0.4, totalValue * 0.6)}$</p>
-            <Button
-              variant="contained"
-              href={`https://www.google.com/maps/search/${buyer.name}`}
-            >
-              Sell
-            </Button>
+            <div className="sell-row-right">
+              <p>
+                {getRandomValue(totalValue * 0.4, totalValue * 0.6).toFixed(1)}$
+              </p>
+              <Button
+                variant="contained"
+                target="_blank"
+                href={
+                  buyer.url ||
+                  `https://www.google.com/maps/search/${buyer.name}`
+                }
+                sx={{ backgroundColor: '#F8D101', color: 'black' }}
+              >
+                Sell
+              </Button>
+            </div>
           </div>
         ))}
       </Card>

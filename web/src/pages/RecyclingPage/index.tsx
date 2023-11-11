@@ -22,9 +22,7 @@ const RecyclingPage = () => {
           setLoading(false)
         })
     } catch (err) {
-      console.log('====================================')
       console.log(err)
-      console.log('====================================')
     }
   }, [])
 
@@ -39,6 +37,7 @@ const RecyclingPage = () => {
       )}
       <Button
         variant="contained"
+        target="_blank"
         href="https://www.kierratys.info/?lat=60.29&lng=24.8233&zoom=11&filters=117#"
         sx={{ marginTop: '20px' }}
       >
