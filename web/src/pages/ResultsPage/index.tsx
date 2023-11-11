@@ -1,9 +1,11 @@
 import { useLocation, useParams } from 'react-router'
 import MaterialTable from './MaterialTable'
+import { ObjectInfo } from '../../types'
 
 const ResultsScreen = () => {
   const { itemName } = useParams()
   const { state } = useLocation()
+  const data: ObjectInfo = state?.data || null
 
   return (
     <div className="container">
@@ -11,8 +13,9 @@ const ResultsScreen = () => {
         {itemName !== 'unknown' ? itemName : 'Unknown object'}
       </h2>
       {itemName !== 'unknown' ? (
-        <MaterialTable materials={state.materials} />
+        <MaterialTable materials={data.materials} />
       ) : null}
+      <p>Total Value: {data.totalValue}</p>
     </div>
   )
 }

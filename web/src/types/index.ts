@@ -6,6 +6,7 @@ export interface MaterialResult {
 }
 
 export interface ObjectInfo {
-  name: string
+  itemName: string
   materials: MaterialResult[]
+  totalValue: number
 }

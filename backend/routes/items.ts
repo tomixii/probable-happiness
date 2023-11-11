@@ -14,8 +14,18 @@ itemsRouter.post(
     const { image } = req.body
     const types = await detectObjectType(image)
     if (types) {
-      const data = await getInfoFromObjectType(types)
-      res.json(data)
+      //const data = await getInfoFromObjectType(types)
+      const mockData = {
+        itemName: 'Mobile Phone',
+        materials: [
+          { material: 'Copper', quantity: 0.1, value: 0.1, consumption: 0.1 },
+          { material: 'Gold', quantity: 2, value: 60000, consumption: 0.1 },
+        ],
+        totalValue: 15,
+      }
+      setTimeout(() => {
+        res.json(mockData)
+      }, 2000)
     } else {
       res.sendStatus(400)
     }

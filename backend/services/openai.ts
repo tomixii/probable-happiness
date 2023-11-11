@@ -1,6 +1,13 @@
 import OpenAI from 'openai'
 
+import prices from './prices.json'
+
 const openai = new OpenAI({ apiKey: Bun.env.OPENAI_API_KEY })
+
+interface OpenAIResult {
+  material: string
+  quantity: number
+}
 
 export const getInfoFromObjectType = async (types: string[]) => {
   console.log(types)
@@ -43,8 +50,24 @@ export const getInfoFromObjectType = async (types: string[]) => {
   })
   console.dir(completion, { depth: null })
 
-  const data = JSON.parse(completion?.choices?.[0]?.message?.content || '')
+  const data: OpenAIResult[] = JSON.parse(
+    completion?.choices?.[0]?.message?.content || ''
+  )
   console.log(data)
 
-  return { message: data }
+  const transformedResults = parseOpenAIResults(data)
+
+  return {
+    name: types[0],
+    materials: transformedResults,
+    totalValue: transformedResults.reduce((acc, curr) => acc + curr.value, 0),
+  }
+}
+
+const parseOpenAIResults = (results: OpenAIResult[]) => {
+  return results.map((result) => ({
+    ...result,
+    value: prices[result.material.toLowerCase()] || 0,
+    consumption: 0,
+  }))
 }

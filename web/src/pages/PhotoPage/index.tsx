@@ -21,17 +21,15 @@ export default function PhotoPage() {
           image: dataUri,
         }
       )
-      if (response?.data?.name !== '') {
-        navigate(`/results/${response.data.name}`, {
-          state: { materials: response.data.materials },
+      if (response?.data?.itemName !== '') {
+        navigate(`/results/${response.data.itemName}`, {
+          state: { data: response.data },
         })
       } else {
         navigate(`/results/unknown`)
       }
     } catch (err) {
-      console.log('====================================')
       console.log(err)
-      console.log('====================================')
     } finally {
       setLoading(false)
     }
