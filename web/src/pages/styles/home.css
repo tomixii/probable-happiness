@@ -1,0 +1,51 @@
+.rawcycle-logo {
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    transform-origin: center;
+    animation: pulse 4s ease-in-out infinite;
+}
+
+.rawcycle-button {
+    position: relative;
+    width: 50vw;
+    height: 50vw;
+    max-width: 200px;
+    max-height: 200px;
+    min-width: 100px;
+    min-height: 100px;
+    background: none;
+    border: none;
+    margin: auto;
+    border-radius: 50%;
+    animation: pulse-bg 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0% {
+        -webkit-transform: scale(1.05);
+        transform: scale(1.05);
+    }
+
+    50% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    100% {
+        -webkit-transform: scale(1.05);
+        transform: scale(1.05);
+    }
+}
+
+@keyframes pulse-bg {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+    }
+
+    100% {
+        box-shadow: 0 0 0 40px rgba(0, 0, 0, 0);
+    }
+}
