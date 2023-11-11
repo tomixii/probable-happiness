@@ -1,0 +1,12 @@
+.photo-page {
+  display: flex;
+  height: 100%;
+  background-color: #ffffff;
+  align-items: center;
+  justify-content: center;
+}
+.camera {
+  height: 640;
+  width: 480;
+  border-radius: 20;
+}
