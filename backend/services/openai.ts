@@ -5,13 +5,29 @@ const openai = new OpenAI({ apiKey: Bun.env.OPENAI_API_KEY })
 export const getInfoFromObjectType = async (types: string[]) => {
   console.log(types)
 
-  const messageContent = `Given a set of object categories below, create a JSON object which enumerates a set of child objects.                       
-  Each child object has a property named "material" and a property named "quantity".
-  For each child object assign to the property named "material" a rare material generally found in the object described by provided the set of categories and to the property named "quantity" the amount of said rare material in grams.
-  The resulting JSON object should be in this format: [{"material":"string","quantity":"number"}].\n\n
-  The set of object categories:\n
-  ${types}\n\n
-  The JSON object:\n\n`
+  const messageContent = `First, find the most probable consumer product from a list of words: "Electronics,Mobile Phone,Phone" and assign the value to variable X.
+  Create an exhaustive list of rare materials found in X.
+  From all the items in the list create a JSON object:
+  
+  Use the following template for the JSON object:
+  
+  [
+    {
+      "material": "MaterialName",
+      "quantity": MaterialQuantityInGrams,
+      "value": MaterialValueInUSD,
+      "consumption": EnergyConsumptionInKWh
+    },
+    ...
+  ]
+  
+  In this JSON structure:
+  
+  "MaterialName" is the name of the rare material used in X.
+  "MaterialQuantityInGrams" is the amount of the material in grams found in X.
+  "MaterialValueInUSD" is the real-world monetary value of the material, calculated as the quantity in grams multiplied by the real-world price per gram of the material.
+  "EnergyConsumptionInKWh" represents the total amount of energy required to produce the specified quantity of the material, calculated as the quantity in grams multiplied by the energy required to produce one gram of the material.
+  The last object in the array will provide the total sum of all quantities, values, and energy consumption for all materials listed.`
 
   console.log(messageContent)
 
