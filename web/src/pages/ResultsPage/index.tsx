@@ -2,7 +2,8 @@ import { useLocation, useNavigate, useParams } from 'react-router'
 import Button from '@mui/material/Button'
 import MaterialTable from './MaterialTable'
 import { ObjectInfo } from '../../types'
-import rawcycle from '../../assets/rawcycle_logo.svg'
+import rawcycle from '../../assets/logo.webp'
+import Card from '@mui/material/Card'
 
 import './style.css'
 
@@ -14,7 +15,9 @@ const ResultsScreen = () => {
 
   return (
     <div className="container">
-      <img className="rawcycle-logo-results" src={rawcycle}></img>
+      <a href="/">
+        <img className="rawcycle-logo-results" src={rawcycle}></img>
+      </a>
       <h2 className="header">
         {itemName !== 'unknown' ? itemName : 'Unknown object'}
       </h2>
@@ -38,7 +41,10 @@ const ResultsScreen = () => {
           <Button
             variant="contained"
             size="large"
-            onClick={() => navigate(`/recycle/${itemName}`)}
+            onClick={() => {
+              console.log('navigate recycle')
+              navigate(`/recycle/${itemName}`)
+            }}
           >
             Recycle
           </Button>
@@ -59,7 +65,14 @@ const ResultsScreen = () => {
       )}
       {data?.materials?.length > 0 && itemName !== 'unknown' ? (
         <MaterialTable data={data} />
-      ) : null}
+      ) : (
+        <Card style={{ padding: 16, backgroundColor: '#F8D101' }}>
+          <p>
+            Seems that your item might not contain any critical raw materials.
+            It is still important to recycle it correctly!
+          </p>
+        </Card>
+      )}
     </div>
   )
 }

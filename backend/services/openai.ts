@@ -13,8 +13,10 @@ export const getInfoFromObjectType = async (type: string) => {
   console.log(type)
 
   const messageContent = `[only JSON] Response with JSON only. First, find the most probable consumer product from a category: "${type}" and assign the value to variable X.
-  Create an exhaustive list of critical raw materials found in X.
-  Create a JSON object that lists all the critical raw materials in the list.. 
+  Create a list of materials found in X.
+  Create a JSON object that lists all the materials in the list.
+
+  If there's no critical raw materials, return an empty list.
   
   For each critical raw material, include the following properties: 
   "material," which indicates the type of critical raw material; 

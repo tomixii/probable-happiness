@@ -76,7 +76,7 @@
   },
   {
     "metal": "Iron",
-    "price_per_kg": 6261.9,
+    "price_per_kg": 0.1281,
     "energy_per_kg_kWh": 178.66
   },
   {
@@ -91,7 +91,7 @@
   },
   {
     "metal": "Magnesium",
-    "price_per_kg": 6292.23,
+    "price_per_kg": 45.23,
     "energy_per_kg_kWh": 182.45
   },
   {
@@ -111,7 +111,7 @@
   },
   {
     "metal": "Nickel",
-    "price_per_kg": 5783.88,
+    "price_per_kg": 17.88,
     "energy_per_kg_kWh": 290.88
   },
   {
@@ -161,12 +161,12 @@
   },
   {
     "metal": "Silicon",
-    "price_per_kg": 4892.64,
+    "price_per_kg": 400.64,
     "energy_per_kg_kWh": 103.56
   },
   {
     "metal": "Silver",
-    "price_per_kg":723,    
+    "price_per_kg": 723,
     "energy_per_kg_kWh": 348.83
   },
   {

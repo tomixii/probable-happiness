@@ -13,7 +13,7 @@ const MaterialTable: FC<Props> = ({ data }) => {
       <p className="material-warning">
         Don't throw this item to mixed waste, it contains valuable materials:
       </p>
-      <Table>
+      <Table className="result-table">
         <TableHead>
           <TableRow>
             <TableCell sx={{ fontWeight: 'bold' }}>Material</TableCell>
