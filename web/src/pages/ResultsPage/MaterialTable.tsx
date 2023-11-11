@@ -20,7 +20,7 @@ const MaterialTable: FC<Props> = ({ data }) => {
             <TableCell sx={{ fontWeight: 'bold' }}>Amount</TableCell>
             <TableCell sx={{ fontWeight: 'bold' }}>Price</TableCell>
             <TableCell sx={{ fontWeight: 'bold' }}>
-              Energy Consumption
+              Energy used to produce
             </TableCell>
           </TableRow>
         </TableHead>
