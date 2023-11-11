@@ -1,22 +1,20 @@
-import express, { Request, Response, NextFunction, Express } from 'express'
+import cors from 'cors'
+import express, { Express } from 'express'
+import audit from 'express-requests-logger'
+
+import itemsRouter from './routes/items'
 const app: Express = express()
 
-app.use(express.json())
+app.use(express.json({ limit: '50mb' }))
 
 const port = process.env.PORT || 8080
 
-app.get(
-  '/',
-  async (req: Request, res: Response, next: NextFunction): Promise<void> => {
-    try {
-      res.status(200).json({
-        message: 'Hurray!! we create our first server on bun js',
-        success: true,
-      })
-    } catch (error: unknown) {
-      next(new Error((error as Error).message))
-    }
-  }
+app.use(cors())
+app.use('/items', itemsRouter)
+app.use(
+  audit({
+    logger: console, // Existing bunyan logger
+  })
 )
 
 app.listen(port, () => {

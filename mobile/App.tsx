@@ -1,6 +1,7 @@
 import React, { createRef, useState, useEffect } from 'react'
 import { Camera, CameraType } from 'expo-camera'
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import axios from 'axios'
 
 export default function App() {
   const [type, setType] = useState(CameraType.back)
@@ -21,6 +22,12 @@ export default function App() {
     if (cameraRef.current) {
       const photo = await cameraRef.current.takePictureAsync()
       console.log(photo)
+      console.log(photo.base64?.length)
+
+      const response = await axios.post('http://localhost:8080/items', {
+        image: photo.base64,
+      })
+      console.log(response.data)
     }
   }
 
