@@ -5,7 +5,6 @@ import { ObjectInfo } from '../../types'
 import rawcycle from '../../assets/logo.webp'
 import Card from '@mui/material/Card'
 
-
 import './style.css'
 
 const ResultsScreen = () => {
@@ -16,7 +15,9 @@ const ResultsScreen = () => {
 
   return (
     <div className="container">
-      <a href="/"><img className="rawcycle-logo-results" src={rawcycle}></img></a>
+      <a href="/">
+        <img className="rawcycle-logo-results" src={rawcycle}></img>
+      </a>
       <h2 className="header">
         {itemName !== 'unknown' ? itemName : 'Unknown object'}
       </h2>
@@ -44,22 +45,32 @@ const ResultsScreen = () => {
           >
             Recycle
           </Button>
-          {data?.materials?.length > 0 &&
-            <Button variant="contained" size="large">
+          {data?.materials?.length > 0 && (
+            <Button
+              variant="contained"
+              size="large"
+              onClick={() =>
+                navigate(`/sell/${itemName}`, {
+                  state: { totalValue: data.totalValue },
+                })
+              }
+            >
               Sell
             </Button>
-          }
+          )}
         </div>
-      )
-      }
-      {
-        data?.materials?.length > 0 && itemName !== 'unknown' ? (
-          <MaterialTable data={data} />
-        ) : <Card style={{ padding: 16, backgroundColor: '#F8D101' }}>
-          <p>Seems that your item might not contain any critical raw materials. It is still important to recycle it correctly!</p>
+      )}
+      {data?.materials?.length > 0 && itemName !== 'unknown' ? (
+        <MaterialTable data={data} />
+      ) : (
+        <Card style={{ padding: 16, backgroundColor: '#F8D101' }}>
+          <p>
+            Seems that your item might not contain any critical raw materials.
+            It is still important to recycle it correctly!
+          </p>
         </Card>
-      }
-    </div >
+      )}
+    </div>
   )
 }
 

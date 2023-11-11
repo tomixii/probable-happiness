@@ -5,7 +5,7 @@ import { PropagateLoader } from 'react-spinners'
 import axios from 'axios'
 
 import './style.css'
-import { Card } from '@mui/material'
+import { Card, Button } from '@mui/material'
 
 const RecyclingPage = () => {
   const [loading, setLoading] = useState(false)
@@ -16,15 +16,13 @@ const RecyclingPage = () => {
     setLoading(true)
     try {
       axios
-        .get(`http://localhost:8080/recycle/${itemName}`)
+        .get(`https://rawcycle.fly.dev/recycle/${itemName}`)
         .then((response) => {
           setRecycleInstructions(response.data.instructions)
           setLoading(false)
         })
     } catch (err) {
-      console.log('====================================')
       console.log(err)
-      console.log('====================================')
     }
   }, [])
 
@@ -37,6 +35,14 @@ const RecyclingPage = () => {
       ) : (
         <Card style={{ padding: 16 }}><p>{recycleInstructions}</p></Card>
       )}
+      <Button
+        variant="contained"
+        target="_blank"
+        href="https://www.kierratys.info/?lat=60.29&lng=24.8233&zoom=11&filters=117#"
+        sx={{ marginTop: '20px' }}
+      >
+        Recycle!
+      </Button>
     </div>
   )
 }

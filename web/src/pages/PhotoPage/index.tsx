@@ -19,7 +19,7 @@ export default function PhotoPage() {
     setLoading(true)
     try {
       const response = await axios.post<unknown, AxiosResponse<ObjectInfo>>(
-        'http://localhost:8080/items',
+        'https://rawcycle.fly.dev/items',
         {
           image: dataUri,
         }
@@ -65,7 +65,9 @@ export default function PhotoPage() {
                 handleTakePhoto(dataUri)
               }}
               onCameraStart={() => setCameraLoaded(true)}
-              idealFacingMode={isMobile() ? FACING_MODES.ENVIRONMENT : FACING_MODES.USER}
+              idealFacingMode={
+                isMobile() ? FACING_MODES.ENVIRONMENT : FACING_MODES.USER
+              }
             />
           </>
         )}

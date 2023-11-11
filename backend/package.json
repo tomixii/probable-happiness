@@ -3,6 +3,7 @@
   "module": "index.ts",
   "type": "module",
   "devDependencies": {
+    "@flydotio/dockerfile": "latest",
     "@types/express-requests-logger": "^3.0.4",
     "bun-types": "latest"
   },
@@ -20,6 +21,6 @@
     "openai": "^4.17.4"
   },
   "scripts": {
-    "start": "bun --hot index.ts"
+    "start": "bun index.ts"
   }
 }

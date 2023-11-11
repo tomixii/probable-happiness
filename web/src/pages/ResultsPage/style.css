@@ -44,7 +44,9 @@
   align-items: center;
 }
 
-.result-table {}
+.result-table th {
+  font-weight: bold;
+}
 
 .result-table th,
 .result-table td {
